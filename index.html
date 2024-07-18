@@ -8,23 +8,18 @@
 <body>
     <div id="app"></div>
 
-    <script type="text/javascript">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Add babel script to translate JSX to html -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/jsx">
         // Select the div element with id="app"
-        const app = document.getElementById('app')
-
-        // Create a h1 DOM object
-        const header = document.createElement('h1')
-
-        //Create a new text node for the h1 element
-        // const text = document.createTextNode('Hello World')  This is the one liner way to do it
-        const text = 'Develop. Preview. Ship.'
-        const headerContent = document.createTextNode(text)
-
-        // Append the text to the header
-        header.appendChild(headerContent)
-
-        // Append (Place) the header to the div
-        app.appendChild(header)
+        const domNode = document.getElementById('app')
+        const root = ReactDOM.createRoot(domNode)
+        root.render(<h1>Develop. Preview. Ship.</h1>);
+        
     </script>
 </body>
 </html>
