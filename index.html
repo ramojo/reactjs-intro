@@ -18,14 +18,29 @@
         // Select the div element with id="app"
         const app = document.getElementById('app')
 
-        function Header() {
-            return <h1>Develop. Preview. Ship.</h1>
+        function createTitle() {
+            if (title) {
+                return title
+            } else {
+                return 'Default Title'
+            }
+        }
+
+        function Header ({ title }) {
+            console.log(title)
+            return <h1>{title}</h1>; // Easiest way to do it
+            return <h1>{props.title}</h1>; // Object property with dot notation
+            return <h1>{`Cool ${title}`}</h1>; // Template literal
+            return <h1>{createTitle(title)}</h1>; // Returned value of a function
+            return <h1>{title ? title: 'Default Title'}</h1>; // Using ternary operators. This allows for more flexibility s it accounts for when a title is not passed as well
+            // Either of the above methods will work
         }
 
         function HomePage() {
             return (
                 <div>
-                    <Header /> 
+                    <Header title = "ReactJS Introduction" /> 
+                    <Header title='Interesting!' />
                 </div>
             );
         }
