@@ -37,7 +37,13 @@
         }
 
         function HomePage() {
+            const [likes, setLikes] = React.useState(0);
             const names = ['Jane Wanjiku', 'John Kamau', 'Peter Otieno']
+            function handleClick() {
+                setLikes(likes + 1)
+                console.log('Increment when clicked')
+
+            }
             return (
                 <div>
                     <Header title = "ReactJS Introduction" /> 
@@ -48,6 +54,8 @@
                             names.map(name => <li key={name}>{name}</li>)
                         }
                     </ul>
+
+                    <button onClick={handleClick}>Like ({likes})</button>
                 </div>
             );
         }
