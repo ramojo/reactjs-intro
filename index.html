@@ -28,19 +28,26 @@
 
         function Header ({ title }) {
             console.log(title)
-            return <h1>{title}</h1>; // Easiest way to do it
-            return <h1>{props.title}</h1>; // Object property with dot notation
-            return <h1>{`Cool ${title}`}</h1>; // Template literal
-            return <h1>{createTitle(title)}</h1>; // Returned value of a function
+            // return <h1>{title}</h1>; // Easiest way to do it
+            // return <h1>{props.title}</h1>; // Object property with dot notation
+            // return <h1>{`Cool ${title}`}</h1>; // Template literal
+            // return <h1>{createTitle(title)}</h1>; // Returned value of a function
             return <h1>{title ? title: 'Default Title'}</h1>; // Using ternary operators. This allows for more flexibility s it accounts for when a title is not passed as well
-            // Either of the above methods will work
+            // Either of the above methods will work but it will only display once with all of them uncommented. This is not an error
         }
 
         function HomePage() {
+            const names = ['Jane Wanjiku', 'John Kamau', 'Peter Otieno']
             return (
                 <div>
                     <Header title = "ReactJS Introduction" /> 
                     <Header title='Interesting!' />
+                    <Header />
+                    <ul>
+                        {
+                            names.map(name => <li key={name}>{name}</li>)
+                        }
+                    </ul>
                 </div>
             );
         }
